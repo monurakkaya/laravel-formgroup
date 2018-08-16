@@ -1,10 +1,10 @@
-##Installation
+## Installation
 
 `$ composer require monurakkaya/laravel-formgroup`
 
-##Usage
+## Usage
 
-Text Input: 
+##### Text Input: 
 
 ```php
     @formgroup([
@@ -27,7 +27,7 @@ It will generate below html code :
 ![Text](http://monurakkaya.com/laravel-formgroup/text.png)
 
 ***
-DateTime Input:
+##### DateTime Input:
 ```php
     @formgroup([
         'name' => 'start_at',
