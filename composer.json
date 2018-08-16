@@ -1,0 +1,16 @@
+{
+    "name": "monurakkaya/laravel-formgroup",
+    "description": "A blade input component for laravel & bootstrap3. Build a form with thousands of inputs within minutes!",
+    "authors": [
+        {
+            "name": "monurakkaya",
+            "email": "monurakkaya@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Monurakkaya\\FormGroup\\" : "src/app/"
+        }
+    }
+}
