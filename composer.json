@@ -12,5 +12,12 @@
         "psr-4": {
             "Monurakkaya\\FormGroup\\" : "src/app/"
         }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Monurakkaya\\FormGroup\\Providers\\ServiceProvider"
+            ]
+        }
     }
 }

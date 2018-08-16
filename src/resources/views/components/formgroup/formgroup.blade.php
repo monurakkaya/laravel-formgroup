@@ -9,7 +9,7 @@
             <a class="remove-{{$name}}" style="margin-left: 5px;"><i class="icon-trash"></i> </a>
         @endif
     @endisset
-    @include('laravel-formgroup::components.form_group.fields.'.$type)
+    @include('laravel-formgroup::fields.'.$type)
 
     @if (isset($info) && $info !== '')
         <span class="text-info">{{$info}}</span>
