@@ -18,8 +18,8 @@ class ServiceProvider extends BaseProvider
         $this->loadViewsFrom(__DIR__.'/../../resources/views/components/formgroup', 'laravel-formgroup');
 
         $this->publishes([
-           __DIR__.'/../../resources/views/' => resource_path('views/')
-        ], 'laravel-formgroup-views');
+            __DIR__.'/../../public' => public_path('')
+        ], 'laravel-formgroup');
 
         Blade::component('laravel-formgroup::formgroup', 'formgroup');
         Blade::directive('submit', function () {
