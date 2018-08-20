@@ -11,7 +11,10 @@
     "autoload": {
         "psr-4": {
             "Monurakkaya\\FormGroup\\" : "src/app/"
-        }
+        },
+        "files": [
+            "src/app/Support/helpers.php"
+        ]
     },
     "extra": {
         "laravel": {
