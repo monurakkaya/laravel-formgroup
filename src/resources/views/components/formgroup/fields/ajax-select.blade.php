@@ -48,22 +48,26 @@
                     @endif
                 @endisset
             });
+            @isset($options['allowTags'])
+                @if ($options['allowTags'] === true)
+                    $select.on('select2:selecting', function (e) {
+                        var selection = e.params.args.data;
+                        if (selection.newTag) {
+                            e.preventDefault();
 
-            $select.on('select2:selecting', function (e) {
-                var selection = e.params.args.data;
-                if (selection.newTag) {
-                    e.preventDefault();
-
-                    $.post('{{ route($options['route']) }}',
-                        selection,
-                        function (response) {
-                            response = response.data;
-                            var option = new Option(response.{{$options['label'] ?? 'name'}}, response.{{$options['value'] ?? 'id'}}, true, true);
-                            $select.append(option).trigger('change');
-                            $select.select2('close');
+                            $.post('{{ route($options['route']) }}',
+                                selection,
+                                function (response) {
+                                    response = response.data;
+                                    var option = new Option(response.{{$options['label'] ?? 'name'}}, response.{{$options['value'] ?? 'id'}}, true, true);
+                                    $select.append(option).trigger('change');
+                                    $select.select2('close');
+                            });
+                        }
                     });
-                }
-            });
+                @endif
+            @endisset   
+            
 
             @isset ($options['child'])
                 var child_holder = $('select[name={{$options['child']['name']}}]').closest('.form-group');
