@@ -20,29 +20,33 @@
         $(function () {
 
             var $select = $('select[name={{$name}}]').select2({
-                tags : true,
-                createTag: function (params) {
-                    var term = $.trim(params.term);
+                @isset($options['allowTags'])
+                    @if($options['allowTags'] === true)
+                        tags : true,
+                        createTag: function (params) {
+                            var term = $.trim(params.term);
 
-                    if (term === '') {
-                        return null;
-                    }
+                            if (term === '') {
+                                return null;
+                            }
 
-                    return {
-                        id : term,
-                        text: term,
-                        {{ $options['label'] ?? 'name' }} : term,
-                        @isset ($options['params'])
-                            @foreach ($options['params'] as $param)
-                                {{ $param }} : $('select[name={{ $param }}]').val(),
-                            @endforeach
-                        @endisset
-                        @isset ($options['parent'])
-                            {{ $options['parent'] }} : $('select[name={{ $options['parent'] }}]').val(),
-                        @endisset
-                        newTag: true
-                    }
-                }
+                            return {
+                                id : term,
+                                text: term,
+                                {{ $options['label'] ?? 'name' }} : term,
+                                @isset ($options['params'])
+                                    @foreach ($options['params'] as $param)
+                                        {{ $param }} : $('select[name={{ $param }}]').val(),
+                                    @endforeach
+                                @endisset
+                                @isset ($options['parent'])
+                                    {{ $options['parent'] }} : $('select[name={{ $options['parent'] }}]').val(),
+                                @endisset
+                                newTag: true
+                            }
+                        }
+                    @endif
+                @endisset
             });
 
             $select.on('select2:selecting', function (e) {
