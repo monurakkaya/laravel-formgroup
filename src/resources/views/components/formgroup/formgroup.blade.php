@@ -33,8 +33,9 @@
             $('.remove-{{$name}}').on('click', function () {
                 $('[data-rel={{$name}}]').val('');
                 $('[name={{$name}}]').val('');
-                @if ($type === 'model')
+                @if ($type === 'select' || $type === 'ajax-select')
                 $('[data-rel={{$name}}]').trigger('change');
+                $('[name={{$name}}]').trigger('change');
                 @elseif ($type === 'daterange')
                 $('[name={{$name}}_start]').val('');
                 $('[name={{$name}}_end]').val('');
